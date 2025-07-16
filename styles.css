@@ -1,0 +1,167 @@
+body {
+	margin: 0;
+}
+
+svg text,
+svg tspan {
+  /*font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;*/ /* or 400 for regular */
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.bold {
+  font-family:  sans-serif;
+  font-weight: 700;
+}
+
+
+
+.button {	cursor: pointer; }
+.button:hover path { filter: brightness(1.2); }
+.button:hover rect { filter: brightness(1.2); }
+
+.HOME_RECT {
+  fill: red;
+  pointer-events: all; /* ensure it's clickable */
+}
+
+.button_line rect       { opacity: 0; }
+.button_line:hover rect { opacity: 1; }
+
+
+.HOME rect {
+	opacity: 0;
+}
+
+.HOME:hover path {
+	fill: #017396;
+}
+
+
+.fade {
+  opacity: 0;
+  animation: fade 2s ease forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideUp 2s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide-right {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: fadeSlideRight .8s ease forwards;
+}
+
+
+@keyframes fadeSlideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.fade-slide-left {
+  opacity: 0;
+  transform: translateX(10px);
+  animation: fadeSlideLeft .8s ease forwards;
+}
+
+
+.del00 { animation-delay: 0.0s;	}
+.del01 { animation-delay: 0.1s;	}
+.del02 { animation-delay: 0.2s;	}
+.del03 { animation-delay: 0.3s;	}
+.del04 { animation-delay: 0.4s;	}
+.del05 { animation-delay: 0.5s;	}
+.del06 { animation-delay: 0.6s;	}
+.del07 { animation-delay: 0.7s;	}
+.del08 { animation-delay: 0.8s;	}
+.del09 { animation-delay: 0.9s;	}
+.del10 { animation-delay: 1.0s;	}
+.del2 { animation-delay: 2.0s;	}
+.del3 { animation-delay: 3.0s;	}
+.del4 { animation-delay: 3.0s;	}
+
+@keyframes fadeSlideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Shared animation base for all clouds */
+.cloud {
+  animation: drift 20s linear infinite;
+  transform-origin: center;
+}
+
+/* Optional stagger for variety */
+#c1 { animation-delay: 0s; }
+#c2 { animation-delay: 1s; }
+#c3 { animation-delay: 2s; }
+@keyframes drift {
+  0%   { transform: translateX(100px); opacity: 0; }
+  25%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { transform: translateX(-100px); opacity: 0; }
+}
+
+.fade-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #cff2fa;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+.fade-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.show-fade {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: auto;
+}
+
+.show-fade.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pulse {
+  transform-origin: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
